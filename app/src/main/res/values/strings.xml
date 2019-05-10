@@ -7,8 +7,13 @@
     <string name="nav_header_desc">Navigation header</string>
 
     <string name="menu_home">Inicio</string>
-    <string name="menu_inscription">Inscripción</string>
+    <string name="menu_register">Inscripción</string>
     <string name="menu_state">Estado</string>
+
+    <string name="text_home">Gracias por instalar nuestra aplicación, para nosotros es grato saber que existe una persona en un millon que desea cambiar la vida de un peludo...</string>
+    <string name="text_state">Gracias por inscribirte, pronto nos estaremos comunicando contigo al siguiente correo para poder completar la inscripción: %1$s</string>
+
+    <string name="invalidPersonRegisterData">Hay datos obligatorios sin completar...</string>
 
     <string-array name="identification_type_array">
         <item>Seleccione tipo de identificación</item>

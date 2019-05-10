@@ -6,12 +6,14 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.core.view.GravityCompat;
 import android.view.MenuItem;
+import android.view.View;
+
 import com.google.android.material.navigation.NavigationView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 
 public class MainActivity extends FragmentActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,10 @@ public class MainActivity extends FragmentActivity
         setContentView(R.layout.activity_main);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_frame, new HomeFrament());
+        ft.commit();
     }
 
     @Override
@@ -44,22 +50,15 @@ public class MainActivity extends FragmentActivity
     public void displayView(int viewId) {
 
         Fragment fragment = null;
-        String title = getString(R.string.app_name);
 
         switch (viewId) {
             case R.id.nav_home:
-                fragment = new FragmentHome();
-                title  = "Inicio";
+                fragment = new HomeFrament();
 
                 break;
-            case R.id.nav_inscription:
-                fragment = new FragmentInscription();
-                title = "Inscripción";
+            case R.id.nav_register:
+                fragment = new RegisterFragment();
                 break;
-            case R.id.nav_state:
-                fragment = new FragmentState();
-                title = "Estado";
-
         }
 
         if (fragment != null) {
@@ -71,5 +70,9 @@ public class MainActivity extends FragmentActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 
+    }
+
+    public void finishApp(View view) {
+        finish();
     }
 }
